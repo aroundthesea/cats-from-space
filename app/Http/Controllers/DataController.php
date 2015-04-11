@@ -2,7 +2,6 @@
 
 use App\Data;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
@@ -31,12 +30,14 @@ class DataController extends Controller {
 
 	/**
 	 * Store a newly created resource in storage.
-	 *
+	 * @param $request
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$lat = $request->input('lat');
+
+                return response(['lat'=>$lat]);
 	}
 
 	/**
