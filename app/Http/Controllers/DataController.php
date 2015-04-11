@@ -3,6 +3,7 @@
 use App\Data;
 use App\Http\Requests;
 
+use App\Tag;
 use Illuminate\Http\Request;
 
 class DataController extends Controller {
@@ -36,8 +37,26 @@ class DataController extends Controller {
 	public function store(Request $request)
 	{
 		$lat = $request->input('lat');
+		$lon = $request->input('lon');
+		$zoom = $request->input('zoom');
+		$date = $request->input('date');
+		$tag = $request->input('tag', '');
 
-                return response(['lat'=>$lat]);
+                if ($tag === ''){
+                        return response(['errorMessage' => 'Tag required']);
+                }
+
+                $tag_id = Tag::getTagIdByName($tag);
+
+                $data = Data::create([
+                        'lat' => $lat,
+                        'lon' => $lon,
+                        'zoom' => $zoom,
+                        'date' => $date,
+                        'tag_id' => $tag_id
+                ]);
+
+                return response($data);
 	}
 
 	/**

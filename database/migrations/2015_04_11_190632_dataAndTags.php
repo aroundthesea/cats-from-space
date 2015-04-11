@@ -15,7 +15,7 @@ class DataAndTags extends Migration {
                 Schema::create('tags', function(Blueprint $table)
                 {
                         $table->string('name')->index();
-                        $table->timestamp('created_at');
+                        $table->timestamps();
                 });
                 Schema::create('data', function(Blueprint $table)
                 {
@@ -24,7 +24,7 @@ class DataAndTags extends Migration {
                         $table->integer('tag_id');
                         $table->date('date');
                         $table->string('zoom');
-                        $table->timestamp('created_at');
+                        $table->timestamps();
                 });
 	}
 
