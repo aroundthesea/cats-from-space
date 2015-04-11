@@ -62,12 +62,13 @@ class DataController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  string  $tagName
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($tagName)
 	{
-		//
+                $tag = Tag::where(['name'=>$tagName])->first();
+                return $tag->data;
 	}
 
 	/**

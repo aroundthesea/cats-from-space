@@ -13,4 +13,8 @@ class Tag extends Model{
                 $tag = Tag::firstOrCreate(['name' => strtolower($name)]);
                 return $tag->id;
         }
+
+        public function data() {
+                return $this->hasMany('App\Data', 'tag_id');
+        }
 } 
