@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Data;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -13,8 +14,9 @@ class DataController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{
-                return response()->json(['name' => 'Abigail', 'state' => 'CA']);
+        {
+                return Data::all();
+
 	}
 
 	/**
