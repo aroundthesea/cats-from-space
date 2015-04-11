@@ -56,7 +56,7 @@ class DataController extends Controller {
                         'tag_id' => $tag_id
                 ]);
 
-                return response($data);
+                return $data;
 	}
 
 	/**
