@@ -7,6 +7,11 @@ A web and iOS mobile application that allows users to explore satellite imagery 
 
 ![Screenshot of Cats From Space](https://raw.githubusercontent.com/aroundthesea/cats-from-space/develop/screenshots/cats-from-space-screenshot.png)
 
+### Stack
+* PHP + [Laravel](http://laravel.com/)
+* MySQL
+* JavaScript/jQuery
+
 ### Installation
 * Clone
 * Copy .env.example to .env and change variables to fit local tools
