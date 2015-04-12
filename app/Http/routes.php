@@ -21,3 +21,4 @@ Route::controllers([
 ]);
 
 Route::resource('data', 'DataController');
+Route::resource('location', 'LocationController');
