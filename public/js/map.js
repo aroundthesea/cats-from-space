@@ -138,7 +138,7 @@ var successCallback =  function(response) {
     for(i in response){
         point = response[i];
 
-        L.marker([point.lat, point.lon], {
+        L.marker([point.lat.toFixed(4), point.lon.toFixed(4)], {
             icon: icon,
             draggable: false,
             clickable: true,
