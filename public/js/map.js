@@ -47,12 +47,18 @@ leafmap = new L.Map('map', {
     zoom: 2
 });
 
-
-L.control.layers({
+control = L.control.layers({
     'Yesterday': gibsGeographic.addTo(leafmap),
     'Day Before': makeGIBSLayer("2015-04-10")
 }, {},
     {
         collapsed: false
     }
-).addTo(leafmap);
+);
+
+control.addTo(leafmap);
+
+leafmap.on('baselayerchange', function(e){
+    console.log("Base layer changed");
+    console.log(e);
+});
