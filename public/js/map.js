@@ -138,13 +138,13 @@ var successCallback =  function(response) {
     for(i in response){
         point = response[i];
 
-        L.marker([point.lat.toFixed(4), point.lon.toFixed(4)], {
+        L.marker([point.lat), point.lon], {
             icon: icon,
             draggable: false,
             clickable: true,
             bounceOnAdd: true
         }).bindPopup(
-            '<strong>Coordinates:</strong> ' + point.lat + ', ' + point.lon + '<br />' +
+            '<strong>Coordinates:</strong> ' + point.lat.toFixed(4) + ', ' + point.lon.toFixed(4) + '<br />' +
             '<strong>Tags:</strong> ' + point.tag
         ).addTo(map)
     }
