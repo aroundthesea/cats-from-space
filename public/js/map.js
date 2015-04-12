@@ -61,9 +61,16 @@ control = L.control.layers({
 
 control.addTo(map);
 
-map.on('baselayerchange', function(){
+map.on('baselayerchange', function(e){
+    var singleLayer;
     console.log("Base layer changed");
     console.log(arguments);
+
+    for(singleLayer in control._layers) {
+        if(singleLayer.layer == e.layer) {
+            console.log(singleLayer.name);
+        }
+    }
 });
 
 // Track coordinates
