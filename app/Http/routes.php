@@ -22,3 +22,4 @@ Route::controllers([
 
 Route::resource('data', 'DataController');
 Route::resource('location', 'LocationController');
+Route::resource('categories', 'CategoryController', ['only' => ['index']]);
