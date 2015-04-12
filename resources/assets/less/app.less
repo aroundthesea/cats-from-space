@@ -7,6 +7,21 @@ body, label, .checkbox label {
 	font-weight: 300;
 }
 
+body { 
+    margin: 0; 
+    padding: 0;
+}
+
+/* Map */
+
+#map {
+    position: absolute; 
+    top: 0; 
+    bottom: 0;
+    width: 100%;
+    min-height: 1000px;
+}
+
 /* Toggle Menu */
 
 #wrapper {
@@ -29,7 +44,9 @@ body, label, .checkbox label {
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #eee;
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -43,7 +60,7 @@ body, label, .checkbox label {
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
+    /*padding: 15px;*/
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -75,8 +92,8 @@ body, label, .checkbox label {
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
+    color: #000;
+    background: rgba(204,204,204,0.1);
 }
 
 .sidebar-nav li a:active,
@@ -117,7 +134,7 @@ body, label, .checkbox label {
     }
 
     #page-content-wrapper {
-        padding: 20px;
+        /*padding: 20px;*/
         position: relative;
     }
 
