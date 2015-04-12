@@ -51,4 +51,8 @@ leafmap = new L.Map('map', {
 L.control.layers({
     'Yesterday': gibsGeographic.addTo(leafmap),
     'Day Before': makeGIBSLayer("2015-04-10")
-}, {} ).addTo(leafmap);
+}, {},
+    {
+        collapsed: false
+    }
+).addTo(leafmap);
