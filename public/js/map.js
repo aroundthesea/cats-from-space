@@ -38,9 +38,10 @@ function makeGIBSLayer(date) {
 }
 
 function resetLayerControls(date) {
-    var dayBefore, dayAfter, dateStr
-    ;
+    var dayBefore, dayAfter, dateStr;
     date = date || "2015-04-11";
+    currentDate = date;
+
     date = new Date(date);
 
     for(singleLayer in control._layers) {
@@ -61,7 +62,8 @@ function resetLayerControls(date) {
 }
 
 // GIBS tile layer
-var gibsGeographic = makeGIBSLayer("2015-04-11");
+var currentDate = "2015-04-11";
+var gibsGeographic = makeGIBSLayer(currentDate);
 
 // Map
 var map = new L.Map('map', {
