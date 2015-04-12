@@ -27,6 +27,9 @@
     <script src="http://rawgithub.com/kartena/Proj4Leaflet/master/lib/proj4-compressed.js"></script>
     <script src="http://rawgithub.com/kartena/Proj4Leaflet/master/src/proj4leaflet.js"></script>
 
+    <!-- Bouncemarker -->
+    <script src="/js/bouncemarker.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -63,6 +66,9 @@
                 </li>
                 <li>
                     &copy; 2015 Space Mantis, Inc.
+                </li>
+                <li>
+                    <div id="coordinates"></div>
                 </li>
             </ul>
         </div>
