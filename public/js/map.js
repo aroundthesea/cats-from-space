@@ -129,3 +129,23 @@ map.on('click', function(e) {
         "date": currentDate
     });
 });
+
+var successCallback =  function(response) {
+    var point, i;
+
+    for(i in response){
+        point = response[i];
+
+        L.marker([point.lat, point.lon], {
+            icon: icon,
+            draggable: false,
+            clickable: true,
+            bounceOnAdd: true
+        }).bindPopup(
+            '<strong>Coordinates:</strong> ' + point.lat + ', ' + point.lon + '<br />' +
+            '<strong>Tags:</strong> ' + point.tag
+        ).addTo(map)
+    }
+};
+
+$.get("/data", null, successCallback);
