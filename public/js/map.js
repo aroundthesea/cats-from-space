@@ -1,3 +1,24 @@
+/**
+ *
+ * @param [date] String in the format "YYYY-MM-DD" - Defaults to "2015-04-11". Should default to yesterday.
+ * @returns {L.TileLayer} New layer to add to map
+ */
+function makeGIBSLayer(date) {
+    var newLayer;
+    date = date || "2015-04-11";
+
+    newLayer = new L.TileLayer('http://map1a.vis.earthdata.nasa.gov/wmts-geo/wmts.cgi?TIME='+date+'&SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=MODIS_Terra_CorrectedReflectance_TrueColor&STYLE=&TILEMATRIXSET=EPSG4326_250m&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg', {
+        minZoom: 2,
+        maxZoom: 9,
+        attribution: 'GIBS',
+        tileSize: 512,
+        noWrap: true,
+        continuousWorld: true
+    });
+
+    return newLayer;
+}
+
 crs4326 = new L.Proj.CRS(
     'EPSG:4326',
     '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs', {
@@ -15,14 +36,7 @@ crs4326 = new L.Proj.CRS(
     ]}
 );
 
-gibsGeographic = new L.TileLayer('http://map1a.vis.earthdata.nasa.gov/wmts-geo/wmts.cgi?TIME=2013-11-04&SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=MODIS_Terra_CorrectedReflectance_TrueColor&STYLE=&TILEMATRIXSET=EPSG4326_250m&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg', {
-    minZoom: 2,
-    maxZoom: 9,
-    attribution: 'GIBS',
-    tileSize: 512,
-    noWrap: true,
-    continuousWorld: true
-})
+gibsGeographic = makeGIBSLayer();
 
 leafmap = new L.Map('map', {
     zoomControl: true,
@@ -33,3 +47,4 @@ leafmap = new L.Map('map', {
     zoom: 2,
     layers: [gibsGeographic]
 });
+
