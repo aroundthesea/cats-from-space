@@ -16,15 +16,29 @@ var crs4326 = new L.Proj.CRS(
     ]}
 );
 
+/**
+ *
+ * @param [date] String in the format "YYYY-MM-DD" - Defaults to "2015-04-11". Should default to yesterday.
+ * @returns {L.TileLayer} New layer to add to map
+ */
+function makeGIBSLayer(date) {
+    var newLayer;
+    date = date || "2015-04-11";
+
+    newLayer = new L.TileLayer('http://map1a.vis.earthdata.nasa.gov/wmts-geo/wmts.cgi?TIME='+date+'&SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=MODIS_Terra_CorrectedReflectance_TrueColor&STYLE=&TILEMATRIXSET=EPSG4326_250m&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg', {
+        minZoom: 2,
+        maxZoom: 9,
+        attribution: 'GIBS',
+        tileSize: 512,
+        noWrap: true,
+        continuousWorld: true
+    });
+
+    return newLayer;
+}
+
 // GIBS tile layer
-var gibsGeographic = new L.TileLayer('http://map1a.vis.earthdata.nasa.gov/wmts-geo/wmts.cgi?TIME=2013-11-04&SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=MODIS_Terra_CorrectedReflectance_TrueColor&STYLE=&TILEMATRIXSET=EPSG4326_250m&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg', {
-    minZoom: 2,
-    maxZoom: 8,
-    attribution: 'NASA GIBS',
-    tileSize: 512,
-    noWrap: true,
-    continuousWorld: true
-});
+var gibsGeographic = makeGIBSLayer();
 
 // Map
 var map = new L.Map('map', {
@@ -33,8 +47,23 @@ var map = new L.Map('map', {
     tms: true,
     continuousWorld: true,
     center: [0, 0],
-    zoom: 2,
-    layers: [gibsGeographic]
+    zoom: 2
+});
+
+control = L.control.layers({
+    'Yesterday': gibsGeographic.addTo(map),
+    'Day Before': makeGIBSLayer("2015-04-10")
+}, {},
+    {
+        collapsed: false
+    }
+);
+
+control.addTo(map);
+
+map.on('baselayerchange', function(){
+    console.log("Base layer changed");
+    console.log(arguments);
 });
 
 // Track coordinates

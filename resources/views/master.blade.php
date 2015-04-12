@@ -68,7 +68,7 @@
                     &copy; 2015 Space Mantis, Inc.
                 </li>
                 <li>
-                    <div id="coordinates"></div>
+                    Currently showing: <span id="currentLabel">Yesterday</span>
                 </li>
             </ul>
         </div>
