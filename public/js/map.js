@@ -107,8 +107,8 @@ var icon = L.MakiMarkers.icon({
 
 // Add marker to map by clicking
 map.on('click', function(e) {
-    var lat = e.latlng.lat;
-    var lng = e.latlng.lng;
+    var lat = e.latlng.lat.toFixed(4);
+    var lng = e.latlng.lng.toFixed(4);
     var tag = prompt('Enter a tag');
 
     if(!tag || tag === "") return;
