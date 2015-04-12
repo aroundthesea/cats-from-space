@@ -67,7 +67,7 @@ map.on('baselayerchange', function(e){
     console.log(arguments);
 
     for(singleLayer in control._layers) {
-        if(singleLayer.layer == e.layer) {
+        if(singleLayer.layer._leaflet_id == e.layer._leaflet_id) {
             console.log(singleLayer.name);
         }
     }
