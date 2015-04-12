@@ -111,6 +111,8 @@ map.on('click', function(e) {
     var lng = e.latlng.lng;
     var tag = prompt('Enter a tag');
 
+    if(!tag || tag === "") return;
+
     L.marker([lat, lng], {
         icon: icon,
         draggable: true,
