@@ -16,8 +16,8 @@ crs4326 = new L.Proj.CRS(
 );
 
 gibsGeographic = new L.TileLayer('http://map1a.vis.earthdata.nasa.gov/wmts-geo/wmts.cgi?TIME=2013-11-04&SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=MODIS_Terra_CorrectedReflectance_TrueColor&STYLE=&TILEMATRIXSET=EPSG4326_250m&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg', {
-    minzoom: 0,
-    maxZoom: 5,
+    minZoom: 2,
+    maxZoom: 9,
     attribution: 'GIBS',
     tileSize: 512,
     noWrap: true,
