@@ -58,7 +58,7 @@ control = L.control.layers({
 
 control.addTo(leafmap);
 
-leafmap.on('baselayerchange', function(e){
+leafmap.on('baselayerchange', function(){
     console.log("Base layer changed");
-    console.log(e);
+    console.log(arguments);
 });
