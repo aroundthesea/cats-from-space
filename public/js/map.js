@@ -15,7 +15,7 @@ var crs4326 = new L.Proj.CRS(
         0.002197265625
     ]}
 );
-
+var control;
 /**
  *
  * @param [date] String in the format "YYYY-MM-DD" - Defaults to "2015-04-11". Should default to yesterday.
@@ -37,8 +37,32 @@ function makeGIBSLayer(date) {
     return newLayer;
 }
 
+function resetLayerControls(date) {
+    var dayBefore, dayAfter, dateStr
+    ;
+    date = date || "2015-04-11";
+    date = new Date(date);
+
+    for(singleLayer in control._layers) {
+        var actualLayer = control._layers[singleLayer];
+        control.removeLayer(actualLayer.layer);
+    }
+
+    dayBefore = new Date(date.getTime() - 86400);
+    dateStr = dayBefore.toISOString().substring(0,10);
+    control.addBaseLayer(makeGIBSLayer(dateStr), dateStr);
+
+
+    dayAfter = new Date(date.getTime() + 86400);
+
+    if(dayAfter.getTime() > new Date().getTime()) return;
+
+    dateStr = dayAfter.toISOString().substring(0,10);
+    control.addBaseLayer(makeGIBSLayer(dateStr), dateStr);
+}
+
 // GIBS tile layer
-var gibsGeographic = makeGIBSLayer();
+var gibsGeographic = makeGIBSLayer("2015-05-11");
 
 // Map
 var map = new L.Map('map', {
@@ -51,8 +75,8 @@ var map = new L.Map('map', {
 });
 
 control = L.control.layers({
-    'Yesterday': gibsGeographic.addTo(map),
-    'Day Before': makeGIBSLayer("2015-04-10")
+    "2015-05-11": gibsGeographic.addTo(map),
+    "2015-05-10": makeGIBSLayer("2015-04-10")
 }, {},
     {
         collapsed: false
@@ -68,6 +92,7 @@ map.on('baselayerchange', function(e){
         var actualLayer = control._layers[singleLayer];
         if(actualLayer.layer._leaflet_id == e.layer._leaflet_id) {
             $("#currentLabel").text(actualLayer.name);
+            resetLayerControls(actualLayer.name);
         }
     }
 });
