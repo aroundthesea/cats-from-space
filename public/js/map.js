@@ -80,8 +80,8 @@ map.on('baselayerchange', function(e){
 
 // Define marker icon
 var icon = L.MakiMarkers.icon({
-    icon: "rocket", 
-    color: "#fac800", 
+    icon: "star", 
+    color: "#ffa200", 
     size: "l"
 });
 
