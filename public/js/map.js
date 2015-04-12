@@ -116,6 +116,3 @@ map.on('click', function(e) {
         '<strong>Tags:</strong> ' + prompt('Enter a tag')
     ).addTo(map);
 });
-
-var markers = new L.MarkerClusterGroup();
-map.addLayer(markers);
