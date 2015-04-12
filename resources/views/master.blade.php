@@ -68,10 +68,10 @@
                     <a href="#">Search</a>
                 </li>
                 <li>
-                    &copy; 2015 Space Mantis, Inc.
+                    <strong>Currently showing:</strong> <span id="currentLabel">Yesterday</span>
                 </li>
                 <li>
-                    Currently showing: <span id="currentLabel">Yesterday</span>
+                    &copy; 2015 Space Mantis, Inc.
                 </li>
             </ul>
         </div>
