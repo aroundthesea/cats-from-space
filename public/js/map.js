@@ -75,8 +75,8 @@ var map = new L.Map('map', {
 });
 
 control = L.control.layers({
-    "2015-05-11": gibsGeographic.addTo(map),
-    "2015-05-10": makeGIBSLayer("2015-04-10")
+    "2015-04-11": gibsGeographic.addTo(map),
+    "2015-04-10": makeGIBSLayer("2015-04-10")
 }, {},
     {
         collapsed: false
