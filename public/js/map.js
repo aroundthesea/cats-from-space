@@ -107,13 +107,25 @@ var icon = L.MakiMarkers.icon({
 
 // Add marker to map by clicking
 map.on('click', function(e) {
-    L.marker([e.latlng.lat, e.latlng.lng], {
+    var lat = e.latlng.lat;
+    var lng = e.latlng.lng;
+    var tag = prompt('Enter a tag');
+
+    L.marker([lat, lng], {
         icon: icon,
         draggable: true,
         clickable: true,
         bounceOnAdd: true
     }).bindPopup(
-        '<strong>Coordinates:</strong> ' + e.latlng.lat + ', ' + e.latlng.lng + '<br />' + 
-        '<strong>Tags:</strong> ' + prompt('Enter a tag')
+        '<strong>Location:</strong> ' + lat + ', ' + lng + '<br />' + 
+        '<strong>Tags:</strong> ' + tag
     ).addTo(map);
+
+    $.post("/data",{
+        "lat": lat,
+        "lon": lng,
+        "tag": tag,
+        "zoom": map._zoom,
+        "date": currentDate
+    });
 });
