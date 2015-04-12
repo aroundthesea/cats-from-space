@@ -62,7 +62,7 @@ function resetLayerControls(date) {
 }
 
 // GIBS tile layer
-var gibsGeographic = makeGIBSLayer("2015-05-11");
+var gibsGeographic = makeGIBSLayer("2015-04-11");
 
 // Map
 var map = new L.Map('map', {
