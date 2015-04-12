@@ -6243,12 +6243,6 @@ body {
   width: 100%;
   min-height: 1000px;
 }
-/* Coordinates */
-#coordinates {
-  position: absolute;
-  z-index: 1000;
-  color: red;
-}
 /* Toggle Menu */
 #wrapper {
   padding-left: 0;

@@ -72,12 +72,6 @@ map.on('baselayerchange', function(e){
     }
 });
 
-// Track coordinates
-// map.on('mousemove', function(e) {
-//     var coordinates = document.getElementById("coordinates");
-//     coordinates.innerHTML = e.latlng.lat.toFixed(4) + ", " + e.latlng.lng.toFixed(4);
-// });
-
 // Define marker icon
 var icon = L.MakiMarkers.icon({
     icon: "star", 
@@ -93,6 +87,10 @@ map.on('click', function(e) {
         clickable: true,
         bounceOnAdd: true
     }).bindPopup(
-        prompt('Enter a tag')
+        '<strong>Coordinates:</strong> ' + e.latlng.lat + ', ' + e.latlng.lng + '<br />' + 
+        '<strong>Tags:</strong> ' + prompt('Enter a tag')
     ).addTo(map);
 });
+
+var markers = new L.MarkerClusterGroup();
+map.addLayer(markers);
