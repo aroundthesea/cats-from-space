@@ -1,39 +1,35 @@
-// Sample access token
-L.mapbox.accessToken = 'pk.eyJ1IjoiYXJvdW5kdGhlc2VhIiwiYSI6InVQLXRtUWcifQ.mWzq_PBpWyvhNvMuQctMDw';
+crs4326 = new L.Proj.CRS(
+    'EPSG:4326',
+    '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs', {
+    origin: [-180, 100], 
+    resolutions: [
+        0.5625,
+        0.28125,
+        0.140625,
+        0.0703125,
+        0.03515625,
+        0.017578125,
+        0.0087890625,
+        0.00439453125,
+        0.002197265625
+    ]}
+);
 
-// Render map and view
-var map = L.mapbox.map('map', 'examples.map-i86nkdio', { 
-	zoomControl: false
-}).setView([31, -95.50], 4);
+gibsGeographic = new L.TileLayer('http://map1a.vis.earthdata.nasa.gov/wmts-geo/wmts.cgi?TIME=2013-11-04&SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=MODIS_Terra_CorrectedReflectance_TrueColor&STYLE=&TILEMATRIXSET=EPSG4326_250m&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg', {
+    minzoom: 0,
+    maxZoom: 5,
+    attribution: 'GIBS',
+    tileSize: 512,
+    noWrap: true,
+    continuousWorld: true
+})
 
-// Zoom control location
-new L.Control.Zoom({ 
-	position: 'topright'
-}).addTo(map);
-
-// Marker cluster functionality
-L.mapbox.featureLayer('examples.map-i86nkdio').on('ready', function(e) {
-    var clusterGroup = new L.MarkerClusterGroup();
-    e.target.eachLayer(function(layer) {
-        clusterGroup.addLayer(layer);
-    });
-    map.addLayer(clusterGroup);
+leafmap = new L.Map('map', {
+    zoomControl: true,
+    crs: crs4326,
+    tms: true,
+    continuousWorld: true,
+    center: [0, 0],
+    zoom: 2,
+    layers: [gibsGeographic]
 });
-
-// Hard-coded marker in GeoJSON format
-L.mapbox.featureLayer({
-    type: 'Feature',
-    geometry: {
-        type: 'Point',
-        coordinates: [
-        	-122.1383771,
-        	37.4228628
-        ]
-    },
-    properties: {
-        title: 'WePay',
-        description: '380 Portage Ave',
-        'marker-size': 'medium',
-        'marker-color': '#f44',
-    }
-}).addTo(map);

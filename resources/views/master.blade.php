@@ -22,6 +22,11 @@
     <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css" rel="stylesheet" />
     <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css" rel="stylesheet" />
 
+    <!-- Proj4Leafleft -->
+    <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+    <script src="http://rawgithub.com/kartena/Proj4Leaflet/master/lib/proj4-compressed.js"></script>
+    <script src="http://rawgithub.com/kartena/Proj4Leaflet/master/src/proj4leaflet.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
