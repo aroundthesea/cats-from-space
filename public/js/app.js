@@ -21,3 +21,11 @@ function sampleGet() {
 
     $.get("/location/volcanoes", null, successCallback);
 }
+
+function getCurrentLocation() {
+    var successCallback = function(position) {
+        console.log(position.coords.latitude + " " + position.coords.longitude);
+    };
+
+    navigator.geolocation.getCurrentPosition(successCallback);
+}
