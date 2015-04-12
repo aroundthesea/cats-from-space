@@ -90,6 +90,7 @@ map.on('click', function(e) {
     L.marker([e.latlng.lat, e.latlng.lng], {
         icon: myIcon,
         draggable: true,
-        clickable: true
+        clickable: true,
+        bounceOnAdd: true
     }).addTo(map);
 });
