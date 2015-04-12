@@ -79,15 +79,16 @@ map.on('baselayerchange', function(e){
 // });
 
 // Define marker icon
-var myIcon = L.icon({
-    iconUrl: 'http://leafletjs.com/dist/images/marker-icon.png',
-    popupAnchor: [-3, -76]
+var icon = L.MakiMarkers.icon({
+    icon: "rocket", 
+    color: "#fac800", 
+    size: "l"
 });
 
 // Add marker to map by clicking
 map.on('click', function(e) {
     L.marker([e.latlng.lat, e.latlng.lng], {
-        icon: myIcon,
+        icon: icon,
         draggable: true,
         clickable: true,
         bounceOnAdd: true
