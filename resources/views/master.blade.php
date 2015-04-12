@@ -77,10 +77,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <nav class="menu_ui" id="menu_ui">
-                        <a class="active" href="#">One</a>
-                        <a class="active" href="#">Two</a>
-                    </nav>
                     <div id="map"></div>
                     <script src="/js/map.js"></script>
                 </div>
