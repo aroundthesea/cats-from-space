@@ -63,12 +63,11 @@ control.addTo(map);
 
 map.on('baselayerchange', function(e){
     var singleLayer;
-    console.log("Base layer changed");
-    console.log(arguments);
 
     for(singleLayer in control._layers) {
-        if(singleLayer.layer._leaflet_id == e.layer._leaflet_id) {
-            console.log(singleLayer.name);
+        var actualLayer = control._layers[singleLayer];
+        if(actualLayer.layer._leaflet_id == e.layer._leaflet_id) {
+            $("#currentLabel").text(actualLayer.name);
         }
     }
 });
