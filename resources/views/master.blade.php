@@ -65,10 +65,10 @@
                     <a href="#">Current Location</a>
                 </li>
                 <li>
-                    <a href="#">Search</a>
+                    <strong>Currently showing:</strong> <span id="currentLabel">Yesterday</span>
                 </li>
                 <li>
-                    <strong>Currently showing:</strong> <span id="currentLabel">Yesterday</span>
+                    <input class="form-control" style="width: 200px; margin: 20px;" placeholder="Search">
                 </li>
                 <li>
                     &copy; 2015 Space Mantis, Inc.
