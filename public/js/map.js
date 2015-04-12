@@ -44,7 +44,11 @@ leafmap = new L.Map('map', {
     tms: true,
     continuousWorld: true,
     center: [0, 0],
-    zoom: 2,
-    layers: [gibsGeographic]
+    zoom: 2
 });
 
+
+L.control.layers({
+    'Yesterday': gibsGeographic.addTo(leafmap),
+    'Day Before': makeGIBSLayer("2015-04-10")
+}, {} ).addTo(leafmap);
