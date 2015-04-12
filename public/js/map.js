@@ -48,12 +48,12 @@ function resetLayerControls(date) {
         control.removeLayer(actualLayer.layer);
     }
 
-    dayBefore = new Date(date.getTime() - 86400);
+    dayBefore = new Date(date.getTime() - 86400000);
     dateStr = dayBefore.toISOString().substring(0,10);
     control.addBaseLayer(makeGIBSLayer(dateStr), dateStr);
 
 
-    dayAfter = new Date(date.getTime() + 86400);
+    dayAfter = new Date(date.getTime() + 86400000);
 
     if(dayAfter.getTime() > new Date().getTime()) return;
 
