@@ -92,5 +92,7 @@ map.on('click', function(e) {
         draggable: true,
         clickable: true,
         bounceOnAdd: true
-    }).addTo(map);
+    }).bindPopup(
+        prompt('Enter a tag')
+    ).addTo(map);
 });
